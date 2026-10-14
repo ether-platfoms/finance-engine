@@ -19,7 +19,7 @@ public class Main {
         System.out.println("=== Depreciation Module Test ===");
         Money assetCost = new Money(BigDecimal.valueOf(10_000), CurrencyUnit.USD);
         Money residual = new Money(BigDecimal.valueOf(1_000), CurrencyUnit.USD);
-        int usefulLife = 12; // months
+        int usefulLife = 12;
 
         DepreciationMethod method = new StraightLineDepreciation();
         DepreciationSchedule schedule = new DepreciationSchedule(assetCost, residual, usefulLife, method);
