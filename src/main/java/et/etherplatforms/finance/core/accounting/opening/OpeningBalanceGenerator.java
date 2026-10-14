@@ -1,6 +1,6 @@
 package et.etherplatforms.finance.core.accounting.opening;
 
-import com.keystone.finance.core.accounting.*;
+
 import et.etherplatforms.finance.core.accounting.Account;
 import et.etherplatforms.finance.core.accounting.AccountType;
 import et.etherplatforms.finance.core.accounting.Journal;

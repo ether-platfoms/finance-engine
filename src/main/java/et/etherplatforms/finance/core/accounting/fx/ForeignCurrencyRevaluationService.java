@@ -1,11 +1,9 @@
 package et.etherplatforms.finance.core.accounting.fx;
 
-import com.keystone.finance.core.accounting.*;
 import et.etherplatforms.finance.core.accounting.Account;
 import et.etherplatforms.finance.core.accounting.Journal;
 import et.etherplatforms.finance.core.accounting.LedgerEntry;
 import et.etherplatforms.finance.core.audit.AuditMetadata;
-import com.keystone.finance.core.money.*;
 import et.etherplatforms.finance.core.money.ExchangeRate;
 import et.etherplatforms.finance.core.money.Money;
 import et.etherplatforms.finance.util.MoneyUtils;
@@ -34,11 +32,9 @@ public final class ForeignCurrencyRevaluationService {
         List<LedgerEntry> entries = new ArrayList<>();
 
         if (difference.isPositive()) {
-            // Gain
             entries.add(new LedgerEntry(foreignAccount, difference, null));
             entries.add(new LedgerEntry(fxGainAccount, null, difference));
         } else {
-            // Loss
             Money loss = difference.multiply(MoneyUtils.NEGATIVE_ONE);
             entries.add(new LedgerEntry(fxLossAccount, loss, null));
             entries.add(new LedgerEntry(foreignAccount, null, loss));
@@ -49,7 +45,7 @@ public final class ForeignCurrencyRevaluationService {
                 entries,
                 false,
                 "FX_REVAL",
-                new AuditMetadata("system", "Foreign currency revaluation")// only 1 argument
+                new AuditMetadata("system", "Foreign currency revaluation")
         );
 
     }
